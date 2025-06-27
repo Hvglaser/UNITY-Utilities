@@ -6,17 +6,17 @@ using System.Text.RegularExpressions;
 
 namespace Muco
 {
-    public class RenameProductNameToSceneName : IPostprocessBuildWithReport
+    public class RenameProductNameToSceneName : IPreprocessBuildWithReport
     {
         public int callbackOrder => 0;
         bool renameEnabled = true;
 
-        public void OnPostprocessBuild(BuildReport report)
+        public void OnPreprocessBuild(BuildReport report)
         {
             if (!renameEnabled)
                 return;
 
-            // Use the first enabled scene from the build settings
+            // Find the first enabled scene in Build Settings
             string firstScenePath = null;
 
             foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
@@ -38,7 +38,7 @@ namespace Muco
             string sanitizedSceneName = SanitizeFilename(sceneName);
             PlayerSettings.productName = sanitizedSceneName;
 
-            Debug.Log($"Product name renamed to scene name: {sanitizedSceneName}");
+            Debug.Log($"Product name set to scene name BEFORE build: {sanitizedSceneName}");
         }
 
         private string SanitizeFilename(string filename)
