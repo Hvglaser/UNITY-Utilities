@@ -13,6 +13,9 @@ public class HannisMenu : EditorWindow
     private const string PREF_KEY_RENAME_SCENE = "RenameProductNameToSceneName";
     private bool toggle_RenameProductNameToSceneName;
 
+    private const string PREF_KEY_XR_PLUGIN_REPORT = "XRPluginReport";
+    private bool toggle_XRPluginReport;
+
     [MenuItem("Tools/HannisMenu")]
     public static void ShowWindow()
     {
@@ -23,11 +26,13 @@ public class HannisMenu : EditorWindow
         EditorGUI.BeginChangeCheck();
         toggle_AutoIncrimentVersionCodeOnBuild = GUILayout.Toggle(toggle_AutoIncrimentVersionCodeOnBuild,"Auto Incriment Version Code On Build","Button",GUILayout.ExpandWidth(true));
         toggle_RenameProductNameToSceneName = GUILayout.Toggle(toggle_RenameProductNameToSceneName,"Rename Product Name to Scene Name","Button",GUILayout.ExpandWidth(true));
+        toggle_XRPluginReport = GUILayout.Toggle(toggle_XRPluginReport,"XR Plugin Build Log Reminder","Button",GUILayout.ExpandWidth(true));
         if (EditorGUI.EndChangeCheck())
         {
             // Save the new value to EditorPrefs
             EditorPrefs.SetBool(PREF_KEY, toggle_AutoIncrimentVersionCodeOnBuild);
             EditorPrefs.SetBool(PREF_KEY_RENAME_SCENE,toggle_RenameProductNameToSceneName);
+            EditorPrefs.SetBool(PREF_KEY_XR_PLUGIN_REPORT,toggle_XRPluginReport);
         }
     }
 
@@ -35,6 +40,7 @@ public class HannisMenu : EditorWindow
     {
         toggle_AutoIncrimentVersionCodeOnBuild = EditorPrefs.GetBool(PREF_KEY, false);
         toggle_RenameProductNameToSceneName = EditorPrefs.GetBool(PREF_KEY_RENAME_SCENE, false);
+        toggle_XRPluginReport = EditorPrefs.GetBool(PREF_KEY_RENAME_SCENE, false);
     }
 }
 

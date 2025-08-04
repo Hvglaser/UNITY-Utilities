@@ -38,7 +38,7 @@ namespace Muco
             string sanitizedSceneName = SanitizeFilename(sceneName);
             PlayerSettings.productName = sanitizedSceneName;
 
-            Debug.Log($"Product name set to scene name BEFORE build: {sanitizedSceneName}");
+            Debug.Log($"Product name set to scene name: {sanitizedSceneName}");
         }
 
         private string SanitizeFilename(string filename)
