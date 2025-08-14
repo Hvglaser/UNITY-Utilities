@@ -16,7 +16,7 @@ public class HannisMenu : EditorWindow
     private const string PREF_KEY_XR_PLUGIN_REPORT = "XRPluginReport";
     private bool toggle_XRPluginReport;
 
-    [MenuItem("Tools/HannisMenu")]
+    [MenuItem("Window/HannisMenu")]
     public static void ShowWindow()
     {
         GetWindow<HannisMenu>("Hannis Menu");

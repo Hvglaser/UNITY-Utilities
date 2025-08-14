@@ -8,7 +8,7 @@ using UnityEngine;
 public class MissingScriptTool : MonoBehaviour
 {
     
-    const string k_missingScriptsMenuFolder = "Tools/Missing Scripts/";
+    const string k_missingScriptsMenuFolder = "Window/Missing Scripts/";
 
     [MenuItem(k_missingScriptsMenuFolder + "Find")]
 
