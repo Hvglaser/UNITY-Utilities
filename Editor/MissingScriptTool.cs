@@ -14,7 +14,7 @@ public class MissingScriptTool : MonoBehaviour
 
     static void FindMissingScriptsMenuItem()
     {
-        foreach(GameObject gameObject in GameObject.FindObjectsOfType<GameObject>(true))
+        foreach(GameObject gameObject in FindObjectsByType<GameObject>(FindObjectsSortMode.None))
         {
             foreach (Component component in gameObject.GetComponentsInChildren<Component>())
             {
@@ -30,7 +30,7 @@ public class MissingScriptTool : MonoBehaviour
 
     static void DeleteMissingScriptsMenuItem()
     {
-        foreach(GameObject gameObject in GameObject.FindObjectsOfType<GameObject>(true))
+        foreach(GameObject gameObject in FindObjectsByType<GameObject>(FindObjectsSortMode.None))
         {
             foreach (Component component in gameObject.GetComponentsInChildren<Component>())
             {

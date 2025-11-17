@@ -22,8 +22,8 @@ namespace Muco
                 return;
 
             // Check if there's a GameObject with "Pico" or "Quest" in its name
-            bool hasPico = Object.FindObjectsOfType<GameObject>().Any(obj => obj.name.Contains("Pico"));
-            bool hasQuest = Object.FindObjectsOfType<GameObject>().Any(obj => obj.name.Contains("Quest"));
+            bool hasPico = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None).Any(obj => obj.name.Contains("Pico"));
+            bool hasQuest = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None).Any(obj => obj.name.Contains("Quest"));
             string currentPlugin = "";
             
             if (hasPico && hasQuest)
