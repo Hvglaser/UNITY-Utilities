@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HannisMenu : EditorWindow
 {
 
-    private const string PREF_KEY = "AutoIncrimentVersionCodeOnBuild";
+    private const string PREF_KEY_AUTO_INCREMENT_VERSION_CODE_ON_BUILD = "AutoIncrimentVersionCodeOnBuild";
     private bool toggle_AutoIncrimentVersionCodeOnBuild;
 
     private const string PREF_KEY_RENAME_SCENE = "RenameProductNameToSceneName";
@@ -34,7 +34,7 @@ public class HannisMenu : EditorWindow
         if (EditorGUI.EndChangeCheck())
         {
             // Save the new value to EditorPrefs
-            EditorPrefs.SetBool(PREF_KEY, toggle_AutoIncrimentVersionCodeOnBuild);
+            EditorPrefs.SetBool(PREF_KEY_AUTO_INCREMENT_VERSION_CODE_ON_BUILD, toggle_AutoIncrimentVersionCodeOnBuild);
             EditorPrefs.SetBool(PREF_KEY_RENAME_SCENE,toggle_RenameProductNameToSceneName);
             EditorPrefs.SetBool(PREF_KEY_XR_PLUGIN_REPORT,toggle_XRPluginReport);
             EditorPrefs.SetBool(PREF_KEY_REPLACE_SCENE_LIST,toggle_ReplaceSceneListWithOpenScene);
@@ -43,7 +43,7 @@ public class HannisMenu : EditorWindow
 
     void OnEnable()
     {
-        toggle_AutoIncrimentVersionCodeOnBuild = EditorPrefs.GetBool(PREF_KEY, false);
+        toggle_AutoIncrimentVersionCodeOnBuild = EditorPrefs.GetBool(PREF_KEY_AUTO_INCREMENT_VERSION_CODE_ON_BUILD, false);
         toggle_RenameProductNameToSceneName = EditorPrefs.GetBool(PREF_KEY_RENAME_SCENE, false);
         toggle_XRPluginReport = EditorPrefs.GetBool(PREF_KEY_XR_PLUGIN_REPORT, false);
         toggle_ReplaceSceneListWithOpenScene = EditorPrefs.GetBool(PREF_KEY_REPLACE_SCENE_LIST, false);
